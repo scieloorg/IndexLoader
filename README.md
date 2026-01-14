@@ -1,6 +1,6 @@
 # IndexLoader – Spark OpenAlex → OpenSearch
 
-Projeto Spark unificado para ingestão de dados do **OpenAlex** no **OpenSearch**, com configuração centralizada via variáveis de ambiente (ENV) e **um único job reutilizável** para múltiplos índices.
+Projeto Spark unificado para ingestão de dados do **OpenAlex** no **OpenSearch**, com configuração centralizada via variáveis de ambiente (ENV) e **com job reutilizável** para múltiplos índices.
 
 ---
 
@@ -9,7 +9,7 @@ Projeto Spark unificado para ingestão de dados do **OpenAlex** no **OpenSearch*
 - Eliminar duplicação de scripts Spark  
 - Centralizar configurações (OpenSearch, input, Spark)  
 - Permitir execução flexível por **ENV**  
-- Facilitar uso com Docker, Airflow e CI/CD  
+- Facilitar uso com Docker
 
 ---
 
@@ -117,7 +117,7 @@ docker run --rm \
 
 Recomenda-se:
 - `.env` (não versionado)
-- Secrets (Docker / Kubernetes / Airflow)
+- Secrets (Docker / Kubernetes)
 
 ---
 
@@ -134,16 +134,23 @@ Recomenda-se:
 
 - [ ] Bronze / Silver / Gold  
 - [ ] Split por ano (`publication_year`)  
-- [ ] Remoção de campos pesados (`inverted_abstract`, `fulltext`)  
-- [ ] DAG Airflow  
+- [ ] Remoção de campos pesados (`inverted_abstract`, `fulltext`)    
 - [ ] Métricas e logs estruturados  
-
+## Exemplo para dividir um arquivo grande em partes
 
 ## Exemplo para dividir um arquivo grande em partes
 ```
 zcat works-2019.jsonl.gz | split -l 2000000 - works-2019-part-
 for f in works-2019-part-*; do gzip -9 "$f"; done
 ```
+
+## Para baixar a base de dados completa (snapshot) do OpenAlex:
+
+```
+aws s3 sync "s3://openalex/data/works" "openalex-snapshot" --no-sign-request
+```
+Isso fará o download de todos os arquivos de trabalhos acadêmicos (works) para o diretório openalex-snapshot.
+
 
 ## Executar o job
 ```bash

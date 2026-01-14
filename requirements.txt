@@ -1,0 +1,4 @@
+orjson
+elasticsearch>=8.12
+tenacity>=8
+urllib3<2.2

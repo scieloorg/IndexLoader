@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.pyc
+
+# Spark
+*.jar
+*.log
+
+# Environment
+.env
+.env.*
+secrets/
+
+# Data
+data/
+*.json
+*.jsonl
+*.gz
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store

@@ -137,13 +137,21 @@ Recomenda-se:
 - [ ] Remoção de campos pesados (`inverted_abstract`, `fulltext`)  
 - [ ] DAG Airflow  
 - [ ] Métricas e logs estruturados  
-
+## Exemplo para dividir um arquivo grande em partes
 
 ## Exemplo para dividir um arquivo grande em partes
 ```
 zcat works-2019.jsonl.gz | split -l 2000000 - works-2019-part-
 for f in works-2019-part-*; do gzip -9 "$f"; done
 ```
+
+## Para baixar a base de dados completa (snapshot) do OpenAlex:
+
+```
+aws s3 sync "s3://openalex/data/works" "openalex-snapshot" --no-sign-request
+```
+Isso fará o download de todos os arquivos de trabalhos acadêmicos (works) para o diretório openalex-snapshot.
+
 
 ## Executar o job
 ```bash

@@ -1,4 +1,4 @@
-# Sparkle – Spark OpenAlex → OpenSearch
+# IndexLoader – Spark OpenAlex → OpenSearch
 
 Projeto Spark unificado para ingestão de dados do **OpenAlex** no **OpenSearch**, com configuração centralizada via variáveis de ambiente (ENV) e **um único job reutilizável** para múltiplos índices.
 
@@ -16,7 +16,7 @@ Projeto Spark unificado para ingestão de dados do **OpenAlex** no **OpenSearch*
 ## 📁 Estrutura do Projeto
 
 ```text
-sparkle/
+indexloader/
 ├── config/
 │   └── settings.py          # Configurações centralizadas (ENV)
 ├── jobs/
@@ -51,7 +51,7 @@ OS_PASS=********
 ### ⚡ Spark
 ```bash
 SPARK_MASTER=local[*]
-SPARK_APP_NAME=sparkle-raw_openalex_publishers
+SPARK_APP_NAME=indexloader-raw_openalex_publishers
 ```
 
 ---
@@ -96,7 +96,7 @@ docker run --rm \
   -e OS_USER=admin \
   -e OS_PASS=******** \
   -v $(pwd)/data:/data \
-  sparkle \
+  indexloader \
   spark-submit jobs/send_to_opensearch.py
 ```
 

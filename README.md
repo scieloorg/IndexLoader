@@ -9,7 +9,7 @@ Projeto Spark unificado para ingestão de dados do **OpenAlex** no **OpenSearch*
 - Eliminar duplicação de scripts Spark  
 - Centralizar configurações (OpenSearch, input, Spark)  
 - Permitir execução flexível por **ENV**  
-- Facilitar uso com Docker, Airflow e CI/CD  
+- Facilitar uso com Docker
 
 ---
 
@@ -117,7 +117,7 @@ docker run --rm \
 
 Recomenda-se:
 - `.env` (não versionado)
-- Secrets (Docker / Kubernetes / Airflow)
+- Secrets (Docker / Kubernetes)
 
 ---
 
@@ -134,8 +134,7 @@ Recomenda-se:
 
 - [ ] Bronze / Silver / Gold  
 - [ ] Split por ano (`publication_year`)  
-- [ ] Remoção de campos pesados (`inverted_abstract`, `fulltext`)  
-- [ ] DAG Airflow  
+- [ ] Remoção de campos pesados (`inverted_abstract`, `fulltext`)    
 - [ ] Métricas e logs estruturados  
 ## Exemplo para dividir um arquivo grande em partes
 

@@ -1,6 +1,6 @@
 # Sparkle – Spark OpenAlex → OpenSearch
 
-Projeto Spark unificado para ingestão de dados do **OpenAlex** no **OpenSearch**, com configuração centralizada via variáveis de ambiente (ENV) e **um único job reutilizável** para múltiplos índices.
+Projeto Spark unificado para ingestão de dados do **OpenAlex** no **OpenSearch**, com configuração centralizada via variáveis de ambiente (ENV) e **com job reutilizável** para múltiplos índices.
 
 ---
 

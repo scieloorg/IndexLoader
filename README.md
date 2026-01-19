@@ -138,7 +138,6 @@ Recomenda-se:
 - [ ] Métricas e logs estruturados  
 ## Exemplo para dividir um arquivo grande em partes
 
-## Exemplo para dividir um arquivo grande em partes
 ```
 zcat works-2019.jsonl.gz | split -l 2000000 - works-2019-part-
 for f in works-2019-part-*; do gzip -9 "$f"; done
